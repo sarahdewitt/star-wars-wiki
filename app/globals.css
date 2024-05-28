@@ -21,6 +21,10 @@ p, li{
   @apply text-xs md:text-sm lg:text-base font-normal uppercase list-none pb-2;
 }
 
+ul li {
+  @apply font-semibold;
+}
+
 a{
   @apply text-xs md:text-sm lg:text-base font-normal uppercase tracking-widest;
 }

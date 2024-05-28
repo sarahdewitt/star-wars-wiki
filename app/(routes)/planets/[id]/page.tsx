@@ -1,29 +1,8 @@
 import { InfoBlock } from "@/app/_components/molecules/Block/InfoBlock";
 import { TitleBlock } from "@/app/_components/molecules/PageImage/TitleBlock";
+import { getPeople, getPlanets } from "@/app/services/getAPI";
+import { formatKey, formatValue } from "@/app/utils/formatters";
 import Link from "next/link";
-
-const formatValue = (value: any) => {
-  if (Array.isArray(value)) {
-    return value.join(", ");
-  } else if (typeof value === "object" && value !== null) {
-    return JSON.stringify(value); // or a more custom rendering if needed
-  }
-  return value;
-};
-
-const formatKey = (key: string) => {
-  return key.replace(/_/g, " ");
-};
-
-async function getPlanets(planetId: number) {
-  const res = await fetch(`https://swapi.info/api/planets/${planetId}`);
-  return res.json();
-}
-
-async function getPeople(peopleId: number) {
-  const res = await fetch(`https://swapi.info/api/people/${peopleId}`);
-  return res.json();
-}
 
 export default async function Planet({ params }: any) {
   const planet = await getPlanets(params.id);
