@@ -17,8 +17,8 @@ h2{
   @apply text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-widest;
 }
 
-p{
-  @apply text-xs md:text-sm lg:text-base font-normal uppercase;
+p, li{
+  @apply text-xs md:text-sm lg:text-base font-normal uppercase list-none pb-2;
 }
 
 a{
