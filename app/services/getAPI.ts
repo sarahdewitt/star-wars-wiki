@@ -27,3 +27,8 @@ export const getSpecies = async (speciesId: number) => {
   const res = await fetch(`https://swapi.info/api/species/${speciesId}`);
   return res.json();
 };
+
+export const getCategories = async (categoryName: string) => {
+  const res = await fetch(`https://swapi.info/api/${categoryName}`);
+  return res.json();
+}

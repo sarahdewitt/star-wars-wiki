@@ -1,6 +1,5 @@
 import Image from "next/image";
-import React from "react";
-import { ButtonText } from "../../atoms/Text/Text";
+import { ButtonText } from "../../../atoms/Text/Text";
 import Link from "next/link";
 
 interface categoryProps {
@@ -9,7 +8,7 @@ interface categoryProps {
   catLink: string;
 }
 
-const Category = (props: categoryProps) => {
+export const HomeCategoryImage = (props: categoryProps) => {
   return (
     <Link className="group" href={props.catLink}>
       <div className="relative overflow-hidden">
@@ -25,5 +24,3 @@ const Category = (props: categoryProps) => {
     </Link>
   );
 };
-
-export default Category;

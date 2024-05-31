@@ -2,16 +2,17 @@ import Image from "next/image";
 import { TitleText } from "../../atoms/Text/Text";
 
 interface titleBlockProps{
+  title: string,
     src: string,
     alt: string
 }
 
-export const TitleBlock = (props: titleBlockProps) => {
+export const NamespaceTitleBlock = (props: titleBlockProps) => {
   return (
     <div className="relative overflow-hidden">
-      <TitleText text={"Tatooine"}/>
+      <TitleText text={props.title}/>
         <Image
-          className="block w-full md:h-screen object-cover"
+          className="block w-full h-screen object-cover"
           src={props.src}
           alt={props.alt}
           width={1000}
