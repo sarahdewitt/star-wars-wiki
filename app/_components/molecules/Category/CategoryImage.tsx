@@ -9,7 +9,7 @@ interface CategoryImageProps {
     button_text: string
 }
 
-export const CategoryImage = (props: CategoryImageProps) => {
+const CategoryImage = (props: CategoryImageProps) => {
   return (
     <Link className="group" href={props.href}>
       <div className="relative overflow-hidden">
@@ -25,3 +25,5 @@ export const CategoryImage = (props: CategoryImageProps) => {
     </Link>
   );
 };
+
+export default CategoryImage

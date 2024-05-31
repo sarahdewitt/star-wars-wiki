@@ -1,9 +1,11 @@
-import { TitleText } from '../../atoms/Text/Text'
+import { CategoryTitleText } from '../../atoms/Text/Text'
 
-export const CategoryTitleBlock = ({props}: any) => {
+const CategoryTitleBlock = (props: {name: string}) => {
   return (
-    <div className='bg-blue-300 relative'>
-        <TitleText text={props.name}/>
+    <div className='bg-gradient-to-r from-blue-200 to-blue-300 pb-20 pl-10 pt-44 md:pt-52'>
+        <CategoryTitleText text={props.name}/>
     </div>
   )
 }
+
+export default CategoryTitleBlock

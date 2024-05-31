@@ -3,33 +3,33 @@ import { HomeCategoryImage } from "../../../molecules/Home/HomeCategoryImage/Hom
 const categories = [
   {
     name: "Films",
-    image: "/images/rey_kylo.png",
-    link: "",
+    image: "/images/films-cat.jpg",
+    link: "/films",
   },
   {
-    name: "Films",
-    image: "/images/rey_kylo.png",
-    link: "",
+    name: "Characters",
+    image: "/images/characters-cat.jpg",
+    link: "/people",
   },
   {
-    name: "Films",
-    image: "/images/rey_kylo.png",
-    link: "",
+    name: "Planets",
+    image: "/images/planets-cat.jpg",
+    link: "/planets",
   },
   {
-    name: "Films",
-    image: "/images/rey_kylo.png",
-    link: "",
+    name: "Starships",
+    image: "/images/starships-cat.jpg",
+    link: "/starships",
   },
   {
-    name: "Films",
-    image: "/images/rey_kylo.png",
-    link: "",
+    name: "Vehicles",
+    image: "/images/vehicles-cat.jpg",
+    link: "/vehicles",
   },
   {
-    name: "Films",
-    image: "/images/rey_kylo.png",
-    link: "",
+    name: "Species",
+    image: "/images/species-cat.jpg",
+    link: "/species",
   },
 ];
 

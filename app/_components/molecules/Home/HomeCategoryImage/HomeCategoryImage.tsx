@@ -13,7 +13,7 @@ export const HomeCategoryImage = (props: categoryProps) => {
     <Link className="group" href={props.catLink}>
       <div className="relative overflow-hidden">
         <Image
-          className="block w-full h-[50vh] lg:h-screen object-cover group-hover:scale-110 group-hover:opacity-75 transition-all duration-300 ease-in-out"
+          className="block w-full h-[50vh] lg:h-screen object-cover opacity-80 group-hover:scale-110 group-hover:opacity-60 transition-all duration-300 ease-in-out"
           src={props.catImg}
           alt={props.catText}
           width={1000}

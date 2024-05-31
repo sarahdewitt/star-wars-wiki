@@ -29,6 +29,15 @@ a{
   @apply text-xs md:text-sm lg:text-base font-normal uppercase tracking-widest;
 }
 
+.landing{
+  background-image: url("/images/hero-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(12, 4, 28, 0.3);
+  background-blend-mode: overlay;
+}
+
 @layer base{
   html{
     font-family: "Poppins", system-ui, sans-serif;

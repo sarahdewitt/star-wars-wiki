@@ -7,7 +7,7 @@ export const Title = (props: textProps) => {
 };
 
 export const SubTitle = (props: textProps) => {
-  return <h2>{props.text}</h2>;
+  return <h2 className="pb-2">{props.text}</h2>;
 };
 
 export const Pargraph = (props: textProps) => {
@@ -20,6 +20,10 @@ export const List = (props: textProps) => {
   );
 };
 
+export const HeroTitle = (props: textProps) => {
+  return <h1 className="w-1/2 my-auto">{props.text}</h1>;
+}
+
 export const ButtonText = (props: textProps) => {
   return (
     <p className="text-sm md:text-base lg:text-xl font-semibold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-100">
@@ -31,6 +35,14 @@ export const ButtonText = (props: textProps) => {
 export const TitleText = (props: textProps) => {
   return (
     <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight absolute bottom-10 md:bottom-1/4 left-10">
+      {props.text}
+    </h3>
+  );
+};
+
+export const CategoryTitleText = (props: textProps) => {
+  return (
+    <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
       {props.text}
     </h3>
   );
