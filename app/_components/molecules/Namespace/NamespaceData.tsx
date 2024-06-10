@@ -4,7 +4,7 @@ export const NamespaceData = ({
   children
 }: Readonly<{ children: React.ReactNode}>) => {
   return (
-    <div className={`bg-opacity-80 grid grid-cols-1 md:grid-cols-6`}>
+    <div className={'bg-blue-400 p-10 flex flex-row items-center'}>
       {children}
     </div>
   );

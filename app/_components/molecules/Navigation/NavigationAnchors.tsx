@@ -15,16 +15,12 @@ const anchors = [
     href: "/planets",
   },
   {
-    text: "Starships",
-    href: "/starships",
-  },
-  {
-    text: "Vehicles",
-    href: "/vehicles",
-  },
-  {
     text: "Species",
     href: "/species",
+  },
+  {
+    text: "Starships",
+    href: "/starships",
   },
 ];
 

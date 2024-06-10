@@ -14,7 +14,7 @@ const CategoryImage = (props: CategoryImageProps) => {
     <Link className="group" href={props.href}>
       <div className="relative overflow-hidden">
         <Image
-          className="block w-full h-[50vh] object-cover group-hover:scale-110 group-hover:opacity-75 transition-all duration-300 ease-in-out"
+          className="block w-full h-[50vh] object-cover group-hover:scale-110 group-hover:opacity-75 transition-all duration-300 ease-in-out opacity-90"
           src={props.img_src}
           alt={props.img_alt}
           width={1000}

@@ -15,18 +15,16 @@ export const Pargraph = (props: textProps) => {
 };
 
 export const List = (props: textProps) => {
-  return (
-    <li>{props.text}</li>
-  );
+  return <li>{props.text}</li>;
 };
 
 export const HeroTitle = (props: textProps) => {
   return <h1 className="w-1/2 my-auto">{props.text}</h1>;
-}
+};
 
 export const ButtonText = (props: textProps) => {
   return (
-    <p className="text-sm md:text-base lg:text-xl font-semibold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-100">
+    <p className="text-sm md:text-base lg:text-xl font-semibold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-100 text-center">
       {props.text}
     </p>
   );

@@ -58,12 +58,12 @@ export default async function People({ params }: any) {
         <NamespaceData>
           <div className="md:col-span-3 bg-blue-400 p-10">
             {entries.map(([key, value]) => (
-              <p key={key}>
+              <p key={key} className="pb-7">
                 <span className="font-bold pr-2">{formatKey(key)}</span>
                 {formatValue(value)}
               </p>
             ))}
-            <p>
+            <p className="pb-7">
               <span className="font-bold pr-2">Homeworld</span>
               <Link
                 href={`/planets/${planetId}`}
@@ -92,8 +92,10 @@ export default async function People({ params }: any) {
               )}
             </p>
           </div>
-          <div className="md:col-span-3 bg-blue-300 p-10">
-            <p className="font-bold pb-4">Films</p>
+        </NamespaceData>
+        <div className="md:col-span-3 bg-blue-300 p-10">
+          <p className="font-bold pb-4">Films</p>
+          <div className="flex flex-wrap gap-5">
             {films.map((film) => (
               <Link
                 key={film.url}
@@ -104,8 +106,10 @@ export default async function People({ params }: any) {
               </Link>
             ))}
           </div>
-          <div className="col-span-3 bg-blue-300 p-10">
-            <p className="font-bold pb-4">Vehicles</p>
+        </div>
+        <div className="col-span-3 bg-blue-300 p-10">
+          <p className="font-bold pb-4">Vehicles</p>
+          <div className="flex flex-wrap gap-5">
             {vehicles.length === 0 ? (
               <span className="uppercase">Unknown</span>
             ) : (
@@ -123,8 +127,10 @@ export default async function People({ params }: any) {
               ))
             )}
           </div>
-          <div className="col-span-3 bg-blue-200 p-10">
-            <p className="font-bold pb-4">Starships</p>
+        </div>
+        <div className="col-span-3 bg-blue-200 p-10">
+          <p className="font-bold pb-4">Starships</p>
+          <div className="flex flex-wrap gap-5">
             {starships.length === 0 ? (
               <span>UNKNOWN</span>
             ) : (
@@ -142,7 +148,7 @@ export default async function People({ params }: any) {
               ))
             )}
           </div>
-        </NamespaceData>
+        </div>
       </div>
     </>
   );
