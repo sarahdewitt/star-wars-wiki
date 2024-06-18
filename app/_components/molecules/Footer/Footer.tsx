@@ -18,8 +18,8 @@ const Footer = () => {
       </div>
       <span className="flex gap-2 justify-center">
         <FooterText text={"Follow Me: "} />
-        <FooterAnchor text={"Github /"} href={""} />
-        <FooterAnchor text={"LinkedIn"} href={""} />
+        <FooterAnchor text={"Github /"} href={"https://github.com/sarahdewitt"} />
+        <FooterAnchor text={"LinkedIn"} href={"https://www.linkedin.com/in/sarah-de-witt-926b741a3"} />
       </span>
     </div>
   );
