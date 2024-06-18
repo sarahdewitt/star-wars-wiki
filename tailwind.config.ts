@@ -17,6 +17,8 @@ const config: Config = {
         "500": "#0C041C",
       },
       white: "#FFFFFF",
+      secondaryBlue: "#2E1266",
+      gray: "#808080"
     },
     fontFamily: {
       poppins: "Poppins, sans-serif",

@@ -1,9 +1,11 @@
 import { NamespaceData } from "@/app/_components/molecules/Namespace/NamespaceData";
 import { NamespaceTitleBlock } from "@/app/_components/molecules/Namespace/NamespaceTitleBlock";
 import { Header } from "@/app/_components/organisms/Header/Header";
+import { DataSkeletonLoading, NamespaceDataSkeleton, NamespacePageSkeleton, NamespaceTitleSkeleton } from "@/app/_components/templates/InnerPageSkeleton";
 import { getFilms, getPeople, getPlanets } from "@/app/_services/getAPI";
 import { formatKey, formatValue } from "@/app/_utils/formatters";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export default async function Planet({ params }: any) {
   const planet = await getPlanets(params.id);
@@ -27,41 +29,49 @@ export default async function Planet({ params }: any) {
 
   return (
     <>
-    <Header />
-    <div className="grid grid-cols-1 md:grid-cols-2">
-      <NamespaceTitleBlock
-        title={planet.name}
-        src={`/images/planets/${planet.name}.jpg`}
-        alt={planet.name}
-      />
-      <NamespaceData>
-        <div className="md:col-span-6 bg-blue-400 p-10">
-          {entries.map(([key, value]) => (
-            <p key={key}>
-              <span className="font-bold pr-2">{formatKey(key)}</span>{" "}
-              {formatValue(value)}
-            </p>
+    <Suspense fallback={<NamespacePageSkeleton />}>
+      <Header />
+      <div className="grid grid-cols-1 md:grid-cols-2">
+      <Suspense fallback={<NamespaceTitleSkeleton />}>
+        <NamespaceTitleBlock
+          title={planet.name}
+          src={`/images/planets/${planet.name}.jpg`}
+          alt={planet.name}
+        />
+        </Suspense>
+        <Suspense fallback={<NamespaceDataSkeleton />}>
+        <NamespaceData>
+          <div className="bg-blue-400 md:p-10">
+            {entries.map(([key, value]) => (
+              <p key={key} className="pb-7">
+                <span className="font-bold pr-2">{formatKey(key)}</span>{" "}
+                {formatValue(value)}
+              </p>
+            ))}
+          </div>
+        </NamespaceData>
+        </Suspense>
+      </div>
+      <div className="bg-blue-300 p-10">
+        <p className="font-bold pb-4">Residents</p>
+        <Suspense fallback={<DataSkeletonLoading />}>
+        <div className="flex flex-wrap gap-5">
+          {residents.map((resident) => (
+            <Link
+              key={resident.url}
+              href={`/people/${resident.url.split("/").filter(Boolean).pop()}`}
+              className="block pb-1 hover:text-blue-100 transition-colors duration-150 ease-in"
+            >
+              {resident.name}
+            </Link>
           ))}
         </div>
-        <div className="col-span-3 bg-blue-300 p-10">
-          <p className="font-bold pb-4">Residents</p>
-            <div className="grid grid-cols-2 gap-1">
-            {residents.map((resident) => (
-              <Link
-                key={resident.url}
-                href={`/people/${resident.url
-                  .split("/")
-                  .filter(Boolean)
-                  .pop()}`}
-                className="block pb-1 hover:text-blue-100 transition-colors duration-150 ease-in"
-              >
-                {resident.name}
-              </Link>
-            ))}
-            </div>
-        </div>
-        <div className="col-span-3 bg-blue-200 p-10">
-          <p className="font-bold pb-4">Films</p>
+        </Suspense>
+      </div>
+      <div className="bg-blue-200 p-10">
+        <p className="font-bold pb-4">Films</p>
+        <Suspense fallback={<DataSkeletonLoading />}>
+        <div className="flex flex-wrap gap-5">
           {films.map((film) => (
             <Link
               key={film.url}
@@ -72,8 +82,9 @@ export default async function Planet({ params }: any) {
             </Link>
           ))}
         </div>
-      </NamespaceData>
-    </div>
+        </Suspense>
+      </div>
+      </Suspense>
     </>
   );
 }

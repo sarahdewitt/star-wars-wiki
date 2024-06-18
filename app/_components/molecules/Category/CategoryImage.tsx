@@ -9,7 +9,7 @@ interface CategoryImageProps {
     button_text: string
 }
 
-const CategoryImage = (props: CategoryImageProps) => {
+const CategoryImage = async (props: CategoryImageProps) => {
   return (
     <Link className="group" href={props.href}>
       <div className="relative overflow-hidden">
@@ -17,8 +17,8 @@ const CategoryImage = (props: CategoryImageProps) => {
           className="block w-full h-[50vh] object-cover group-hover:scale-110 group-hover:opacity-75 transition-all duration-300 ease-in-out opacity-90"
           src={props.img_src}
           alt={props.img_alt}
-          width={1000}
-          height={1000}
+          width={400}
+          height={400}
         />
         <ButtonText text={props.button_text} />
       </div>

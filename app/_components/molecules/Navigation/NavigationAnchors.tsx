@@ -22,6 +22,10 @@ const anchors = [
     text: "Starships",
     href: "/starships",
   },
+  {
+    text: "Vehicles",
+    href: "/vehicles",
+  },
 ];
 
 const NavigationAnchors = () => {

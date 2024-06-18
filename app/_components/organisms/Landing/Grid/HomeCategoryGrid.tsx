@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import { HomeCategoryImage } from "../../../molecules/Home/HomeCategoryImage/HomeCategoryImage";
 
 const categories = [
@@ -24,21 +26,28 @@ const categories = [
   {
     name: "Starships",
     image: "/images/starships-cat.jpg",
-    link: "/species",
+    link: "/starships",
+  },
+  {
+    name: "Vehicles",
+    image: "/images/vehicles-cat.jpg",
+    link: "/vehicles",
   },
 ];
 
 export const HomeCategoryGrid = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-5">
+    <div className="grid grid-cols-1 md:grid-cols-6">
       {categories.map((category, index) => {
         return (
-          <HomeCategoryImage
-            key={index}
-            catText={category.name}
-            catImg={category.image}
-            catLink={category.link}
-          />
+          <motion.div key={index} initial={{opacity: 0}} whileInView={{opacity: 100}} transition={{duration: 1, ease: "easeInOut", delay: 0.15 * index}}>
+            <HomeCategoryImage
+              key={index}
+              catText={category.name}
+              catImg={category.image}
+              catLink={category.link}
+            />
+          </motion.div>
         );
       })}
     </div>

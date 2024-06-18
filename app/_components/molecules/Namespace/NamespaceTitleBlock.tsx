@@ -12,7 +12,7 @@ export const NamespaceTitleBlock = (props: titleBlockProps) => {
     <div className="relative overflow-hidden">
       <TitleText text={props.title}/>
         <Image
-          className="block w-full h-screen object-cover"
+          className="block w-full h-full object-cover"
           src={props.src}
           alt={props.alt}
           width={1000}

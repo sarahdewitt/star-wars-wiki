@@ -5,20 +5,22 @@ import { FooterAnchor } from "../../atoms/Anchor/Anchor";
 
 const Footer = () => {
   return (
-    <div className="text-center w-full mx-auto py-10">
-      <FooterText
-        text={"Designed and developed with next.js and ❤️ by sarah de witt"}
-      />
+    <div className="w-full flex flex-wrap justify-between items-center px-10 py-5 bg-blue-400">
+      <div>
+        <FooterText
+          text={"Designed and developed with next.js and ❤️ by sarah de witt"}
+        />
+        <FooterText
+          text={
+            "API data provided by swapi.info. Images sourced from Wookiepedia and Star Wars Databank."
+          }
+        />
+      </div>
       <span className="flex gap-2 justify-center">
         <FooterText text={"Follow Me: "} />
-        <FooterAnchor text={"Github /"} href={""}/>
-        <FooterAnchor text={"LinkedIn"} href={""}/>
+        <FooterAnchor text={"Github /"} href={""} />
+        <FooterAnchor text={"LinkedIn"} href={""} />
       </span>
-      <FooterText
-        text={
-          "Star Wars and all associated names and/or images are copyright Lucasfilm Ltd. Images were freely collected from Wookiepedia."
-        }
-      />
     </div>
   );
 };

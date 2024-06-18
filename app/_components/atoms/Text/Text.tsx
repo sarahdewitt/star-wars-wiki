@@ -1,3 +1,6 @@
+"use client"
+import { motion } from "framer-motion"
+
 interface textProps {
   text: string;
 }
@@ -19,14 +22,14 @@ export const List = (props: textProps) => {
 };
 
 export const HeroTitle = (props: textProps) => {
-  return <h1 className="w-1/2 my-auto">{props.text}</h1>;
+  return <motion.h1 className="md:w-1/2 my-auto" initial={{opacity: 0, y:100}} whileInView={{opacity:100, y:0}} transition={{ease:"easeInOut", duration: 1}}>{props.text}</motion.h1>;
 };
 
 export const ButtonText = (props: textProps) => {
   return (
-    <p className="text-sm md:text-base lg:text-xl font-semibold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-100 text-center">
+    <motion.p className="text-sm md:text-base lg:text-xl font-semibold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-100 text-center">
       {props.text}
-    </p>
+    </motion.p>
   );
 };
 

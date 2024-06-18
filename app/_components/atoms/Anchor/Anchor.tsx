@@ -7,7 +7,7 @@ interface anchorProps {
 
 export const Anchor = (props:anchorProps) => {
   return (
-    <Link className="" href={props.href}>{props.text}</Link>
+    <Link className="" href={props.href} prefetch={true}>{props.text}</Link>
   )
 }
 
