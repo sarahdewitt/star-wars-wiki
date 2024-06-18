@@ -2,6 +2,7 @@ import CategoryImage from "@/app/_components/molecules/Category/CategoryImage";
 import CategoryTitleBlock from "@/app/_components/molecules/Category/CategoryTitleBlock";
 import { Header } from "@/app/_components/organisms/Header/Header";
 import { CategorySkeleton, ImageSkeleton } from "@/app/_components/templates/PageSkeleton";
+import { extractIdFromUrl } from "@/app/_utils/extractId";
 import React, { Suspense } from "react";
 
 async function fetchSpecies() {
@@ -22,7 +23,7 @@ export default async function page() {
             <Suspense key={index} fallback={<ImageSkeleton />}>
               <CategoryImage
                 key={index}
-                href={`/species/${index + 1}`}
+                href={`/species/${extractIdFromUrl(species.url)}`}
                 img_src={`/images/species/${species.name}.jpg`}
                 img_alt={species.name}
                 button_text={species.name}
