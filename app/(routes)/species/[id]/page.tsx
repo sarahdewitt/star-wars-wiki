@@ -28,8 +28,10 @@ export default async function Species({ params }: any) {
     url.split("/").filter(Boolean).pop(),
   );
 
-  const planetId = species.homeworld.split("/").filter(Boolean).pop();
-  const planets = await getPlanets(planetId);
+  const homeworld = species?.homeworld;
+
+  const planetId = homeworld?.split("/").filter(Boolean).pop();
+  const planets = planetId ? await getPlanets(planetId) : null;
 
   // Fetch people data
   const people = await Promise.all(
@@ -63,12 +65,16 @@ export default async function Species({ params }: any) {
                 ))}
                 <p className="pb-7">
                   <span className="pr-2 font-bold">Homeworld</span>
-                  <Link
-                    href={`/planets/${planetId}`}
-                    className="pb-1 transition-colors duration-150 ease-in hover:text-blue-100"
-                  >
-                    {planets.name}
-                  </Link>
+                  {!homeworld ? (
+                    <span className="uppercase">Unknown</span>
+                  ) : (
+                    <Link
+                      href={`/planets/${planetId}`}
+                      className="pb-1 transition-colors duration-150 ease-in hover:text-blue-100"
+                    >
+                      {planets.name}
+                    </Link>
+                  )}
                 </p>
               </div>
             </NamespaceData>

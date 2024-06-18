@@ -29,8 +29,10 @@ export default async function People({ params }: any) {
     vehiclesIds.map((id: number) => getVehicles(id)),
   );
 
-  const planetId = people.homeworld.split("/").filter(Boolean).pop();
-  const planets = await getPlanets(planetId);
+  const homeworld = people?.homeworld;
+
+  const planetId = homeworld?.split("/").filter(Boolean).pop();
+  const planets = planetId ? await getPlanets(planetId) : null;
 
   const filmIds = people.films.map((url: string) =>
     url.split("/").filter(Boolean).pop(),
@@ -76,12 +78,16 @@ export default async function People({ params }: any) {
                 ))}
                 <p className="pb-7">
                   <span className="pr-2 font-bold">Homeworld</span>
-                  <Link
-                    href={`/planets/${planetId}`}
-                    className="pb-1 transition-colors duration-150 ease-in hover:text-blue-100"
-                  >
-                    {planets.name}
-                  </Link>
+                  {!homeworld ? (
+                    <span className="uppercase">Unknown</span>
+                  ) : (
+                    <Link
+                      href={`/planets/${planetId}`}
+                      className="pb-1 transition-colors duration-150 ease-in hover:text-blue-100"
+                    >
+                      {planets.name}
+                    </Link>
+                  )}
                 </p>
                 <p>
                   <span className="pr-2 font-bold">Species</span>
@@ -132,7 +138,7 @@ export default async function People({ params }: any) {
                 vehicles.map((vehicle) => (
                   <Link
                     key={vehicle.url}
-                    href={`/people/${vehicle.url
+                    href={`/vehicles/${vehicle.url
                       .split("/")
                       .filter(Boolean)
                       .pop()}`}
@@ -155,7 +161,7 @@ export default async function People({ params }: any) {
                 starships.map((starship) => (
                   <Link
                     key={starship.url}
-                    href={`/people/${starship.url
+                    href={`/starships/${starship.url
                       .split("/")
                       .filter(Boolean)
                       .pop()}`}

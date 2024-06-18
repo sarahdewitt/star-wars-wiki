@@ -101,7 +101,7 @@ export default async function Films({ params }: any) {
                 planets.map((planet) => (
                   <Link
                     key={planet.url}
-                    href={`/film/${planet.url
+                    href={`/planets/${planet.url
                       .split("/")
                       .filter(Boolean)
                       .pop()}`}
@@ -124,7 +124,7 @@ export default async function Films({ params }: any) {
                 species.map((specie) => (
                   <Link
                     key={specie.url}
-                    href={`/film/${specie.url.split("/").filter(Boolean).pop()}`}
+                    href={`/species/${specie.url.split("/").filter(Boolean).pop()}`}
                     className="block pb-1 transition-colors duration-150 ease-in hover:text-blue-100"
                   >
                     {specie.name}
