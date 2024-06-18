@@ -1,5 +1,7 @@
 # Star Wars Wiki
 
+![Star Wars Wiki](https://github.com/sarahdewitt/star-wars-wiki/raw/main/public/images/readme-cover.png "Star Wars Wiki Cover")
+
 A simple star wars wiki website fully coded in **Next.js** and **SWAPI**, styled with **TailwindCSS** and animated transitions handled by **Framer Motion**.
 
 Designed and developed with ❤️ by [Sarah De Witt](https://sarahdewitt.github.io).
