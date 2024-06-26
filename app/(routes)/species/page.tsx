@@ -1,7 +1,13 @@
 import CategoryImage from "@/app/_components/molecules/Category/CategoryImage";
 import CategoryTitleBlock from "@/app/_components/molecules/Category/CategoryTitleBlock";
-import { Header } from "@/app/_components/organisms/Header/Header";
-import { CategorySkeleton, ImageSkeleton } from "@/app/_components/templates/PageSkeleton";
+import {
+  Header,
+  HeaderMobile,
+} from "@/app/_components/organisms/Header/Header";
+import {
+  CategorySkeleton,
+  ImageSkeleton,
+} from "@/app/_components/templates/PageSkeleton";
 import { extractIdFromUrl } from "@/app/_utils/extractId";
 import React, { Suspense } from "react";
 
@@ -14,24 +20,23 @@ async function fetchSpecies() {
 export default async function page() {
   const species = await fetchSpecies();
   return (
-    <>
-      <Suspense fallback={<CategorySkeleton />}>
-        <Header />
-        <CategoryTitleBlock name={"Species"} />
-        <div className="grid grid-cols-2 md:grid-cols-3">
-          {species.map((species: any, index: number) => (
-            <Suspense key={index} fallback={<ImageSkeleton />}>
-              <CategoryImage
-                key={index}
-                href={`/species/${extractIdFromUrl(species.url)}`}
-                img_src={`/images/species/${species.name}.jpg`}
-                img_alt={species.name}
-                button_text={species.name}
-              />
-            </Suspense>
-          ))}
-        </div>
-      </Suspense>
-    </>
+    <Suspense fallback={<CategorySkeleton />}>
+      <Header />
+      <HeaderMobile />
+      <CategoryTitleBlock name={"Species"} />
+      <div className="grid grid-cols-2 md:grid-cols-3">
+        {species.map((species: any, index: number) => (
+          <Suspense key={index} fallback={<ImageSkeleton />}>
+            <CategoryImage
+              key={index}
+              href={`/species/${extractIdFromUrl(species.url)}`}
+              img_src={`/images/species/${species.name}.jpg`}
+              img_alt={species.name}
+              button_text={species.name}
+            />
+          </Suspense>
+        ))}
+      </div>
+    </Suspense>
   );
 }

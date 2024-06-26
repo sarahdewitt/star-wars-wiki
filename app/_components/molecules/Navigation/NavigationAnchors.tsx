@@ -1,7 +1,7 @@
 import React from "react";
 import { Anchor } from "../../atoms/Anchor/Anchor";
 
-const anchors = [
+export const anchors = [
   {
     text: "Films",
     href: "/films",

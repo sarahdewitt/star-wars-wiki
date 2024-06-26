@@ -1,6 +1,6 @@
 import Footer from "../../molecules/Footer/Footer";
 import FillerSection from "../../molecules/Home/FillerSection/FillerSection";
-import { HeaderHome } from "../../organisms/Header/Header";
+import { HeaderHome, HeaderMobile } from "../../organisms/Header/Header";
 import { HomeCategoryGrid } from "../../organisms/Landing/Grid/HomeCategoryGrid";
 import Hero from "../../organisms/Landing/Hero/Hero";
 
@@ -9,6 +9,7 @@ export const Landing = () => {
     <>
       <div className="landing">
         <HeaderHome />
+        <HeaderMobile/>
         <Hero />
       </div>
       <FillerSection
